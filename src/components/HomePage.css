@@ -1,0 +1,92 @@
+body {
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+  }
+
+.main-header {
+  font-size: 92pt;
+  text-align: left;
+  background-color: #282c34;
+}
+
+.calculator-title {
+  font-size: 56pt;
+  text-align: left;
+}
+
+.description {
+  font-size: 16pt;
+  text-align: left;
+  display: "inline";
+  overflow-wrap: normal;
+  vertical-align: middle;
+}
+
+.widget {
+  width: 60%;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.button {
+  background-color: #353b47;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 97.5%;
+  font-size: 64px;
+  margin: 4px 2px;
+  border-radius: 32px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.033);
+}
+
+.text-box {
+  background-color: #353b47;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 90%;
+  font-size: 40px;
+  margin: 4px 2px;
+  border-radius: 32px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.small-button {
+  background-color: #353b47;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  width: 40%;
+  height: 60px;
+  font-size: auto;
+  margin: 4px 2px;
+  border-radius: 32px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
