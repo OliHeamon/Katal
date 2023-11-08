@@ -4,17 +4,21 @@ body {
     padding: 40px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-  }
+}
 
 .main-header {
   font-size: 92pt;
   text-align: left;
-  background-color: #282c34;
+  background-color: #3cb371;
+  overflow: hidden;
+  border-radius: 32px;
 }
 
 .calculator-title {
-  font-size: 56pt;
-  text-align: left;
+  font-size: 64pt;
+  text-align: center;
+  background-color: #3cb371;
+  border-radius: 32px;
 }
 
 .description {
@@ -59,7 +63,7 @@ button:hover {
   transform: scale(1.033);
 }
 
-.text-box {
+.big-text-box {
   background-color: #353b47;
   border: none;
   color: white;
@@ -89,4 +93,12 @@ button:hover {
   font-family: 'Courier New', Courier, monospace;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+.grade-table {
+  display: inline-block;
+  align-self: center;
+  border: #3cb371;
+  font-size: 32pt;
+  border: none;
 }

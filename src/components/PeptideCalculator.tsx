@@ -3,26 +3,28 @@ import './HomePage.css';
 
 var aminoacids: { [id: string]: number; } = {}
 
-aminoacids["A"] = 89.1
-aminoacids["R"] = 174.2
-aminoacids["N"] = 132.1
-aminoacids["D"] = 133.1
-aminoacids["C"] = 121.1
-aminoacids["E"] = 147.1
-aminoacids["Q"] = 147.1
-aminoacids["G"] = 75.0
-aminoacids["H"] = 155.1
-aminoacids["I"] = 131.2
-aminoacids["L"] = 131.2
-aminoacids["K"] = 146.2
-aminoacids["M"] = 149.2
-aminoacids["F"] = 165.2
-aminoacids["P"] = 115.1
-aminoacids["S"] = 105.1
-aminoacids["T"] = 119.1
-aminoacids["W"] = 204.2
-aminoacids["Y"] = 181.2
-aminoacids["V"] = 117.1
+// Isotopic averages of the masses of all 20 standard residues.
+// Due to the peptide bond, each residue is lacking an OH on its C-terminus and an H on its N-terminus, making their masses 18 Da less than standard.
+aminoacids["A"] = 71.0788
+aminoacids["R"] = 156.1876
+aminoacids["N"] = 114.1039
+aminoacids["D"] = 115.0886
+aminoacids["C"] = 103.1448
+aminoacids["E"] = 129.1155
+aminoacids["Q"] = 128.1308
+aminoacids["G"] = 57.0520
+aminoacids["H"] = 137.1412
+aminoacids["I"] = 113.1595
+aminoacids["L"] = 113.1595
+aminoacids["K"] = 128.1742
+aminoacids["M"] = 131.1986
+aminoacids["F"] = 147.1766
+aminoacids["P"] = 97.1167
+aminoacids["S"] = 87.0782
+aminoacids["T"] = 101.1051
+aminoacids["W"] = 186.2133
+aminoacids["Y"] = 163.1760
+aminoacids["V"] = 99.1326
 
 const handleClear = (event: React.MouseEvent<HTMLElement>) => {
   var input = document.getElementById('textbox') as HTMLInputElement;
@@ -33,7 +35,7 @@ const handleClear = (event: React.MouseEvent<HTMLElement>) => {
 const calculate = (event: React.MouseEvent<HTMLElement>) => {
   var input = document.getElementById('textbox') as HTMLInputElement;
 
-  var text = input.value.trim();
+  var text = input.value.trim().toUpperCase();
 
   var result = document.getElementById('results') as HTMLParagraphElement;
 
@@ -52,6 +54,9 @@ const calculate = (event: React.MouseEvent<HTMLElement>) => {
 
       finalValue += aminoacids[characters[i]];
     }
+
+    // This is required to account for the C-terminal OH group (M.W = 17 Da) and the N-terminal proton (M.W = 1 Da).
+    finalValue += 18;
   }
 
   result.textContent = `Molecular Weight: ${finalValue.toFixed(2)} Da`;
@@ -61,12 +66,11 @@ const PeptideCalculator = () => {
   return (
     <div>
       <header className='calculator-title'>
-        <span style={{fontSize: '56pt'}}><b style={{color: 'mediumseagreen'}}>Peptide</b> Weight Calculator</span>
+        <span>Peptide Weight Calculator</span>
       </header>
       <main>
         <div className='description'>
-          <p><b style={{color: 'mediumseagreen'}}>----------------------------------------</b></p>
-          <p>Determines the molecular weight in Daltons of a given polypeptide sequence, where each polypeptide is in its single letter code format.</p>
+          <p>Determines the <b style={{color: 'mediumseagreen'}}>molecular weight</b> in Daltons (Da) of a given <b style={{color: 'mediumseagreen'}}>polypeptide</b> sequence, where each peptide is in its single letter code format. Only the <b style={{color: 'mediumseagreen'}}>base 20 amino acids</b> are supported, so a sequence using any non-standard residues will not work.</p>
         </div>
         <div>
           <Link to="/" style={{textDecoration: 'none'}}>
@@ -75,7 +79,7 @@ const PeptideCalculator = () => {
           <p></p>
         </div>
         <div>
-          <input id='textbox' type='text' placeholder="Input sequence..." className='text-box' />
+          <input id='textbox' type='text' placeholder="Input sequence..." className='big-text-box' />
           <p></p>
           <button className='small-button' onClick={handleClear}><b style={{color: 'mediumseagreen'}}>Clear</b></button>
           <span>    </span>

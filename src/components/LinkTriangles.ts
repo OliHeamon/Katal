@@ -17,7 +17,7 @@ const options: ISourceOptions = {
           enable: true,
           out_mode: "out",
           random: false,
-          speed: 1.25,
+          speed: 0.5,
           straight: false
         },
         number: { density: { enable: true, area: 800 }, value: 75 },
@@ -165,9 +165,8 @@ const options: ISourceOptions = {
                 style: "",
                 value: "Val",
                 weight: "1"
-            },
+            }
           ],
-          stroke: { color: "random", width: 1 },
           type: "char"
         },
         size: {
